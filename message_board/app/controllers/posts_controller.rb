@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def index
+    @posts = Post.all
+  end
+
   def create
     @post = Post.new(post_params.merge(user: current_user))
     if @post.save
